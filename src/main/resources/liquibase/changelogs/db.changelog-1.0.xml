@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!--<property name="now" value="LocalDateTime.now(ZoneOffset.UTC)"/>-->
+
+    <changeSet id="1" author="OlegM" context="main">
+        <createTable tableName="client">
+            <column name="id" type="Long" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="personal_code" type="varchar(25)" >
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(100)"/>
+            <column name="e_mail" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_by" type="varchar(25)"/>
+            <column name="created_date" type="TIMESTAMP WITH TIME ZONE"/>
+                    <!--valueDate="${now}"/>-->
+            <column name="last_modified_by" type="varchar(25)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="version" type="Long"/>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
